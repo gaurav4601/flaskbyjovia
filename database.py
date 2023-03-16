@@ -20,22 +20,23 @@
 # finally:
 #     connection.close()
 
-
 import mysql.connector
+from cred import cred
+
+
 
 
 cnx = mysql.connector.connect(
-    host="ap-south.connect.psdb.cloud",
-    user="o0rznxamktbumyz3pug9",
-    password="pscale_pw_uETfoSZq8e3TaDTljBUUThkxxox6VZlln3Bc0iduPrZ",
-    database="joviancarrer"
+    host=cred['host'],
+    user=cred['user'],
+    password=cred['password'],
+    database=cred['database']
 )
 
-# If you want to execute SQL queries, you can create a cursor
-cursor = cnx.cursor()
 
 
 def get_jobsdata():
+    cursor = cnx.cursor()
     with cursor as cur:
         print('connection successful')
         cur.execute("SELECT * FROM jobs");
