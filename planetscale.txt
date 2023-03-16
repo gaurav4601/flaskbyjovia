@@ -1,8 +1,0 @@
-Username:	o0rznxamktbumyz3pug9
-Password:	pscale_pw_uETfoSZq8e3TaDTljBUUThkxxox6VZlln3Bc0iduPrZ
-
-
-database: joviancarrer
-username: o0rznxamktbumyz3pug9
-host: ap-south.connect.psdb.cloud
-password: ************
