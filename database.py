@@ -21,7 +21,7 @@
 #     connection.close()
 
 import mysql.connector
-from cred import cred
+#from cred import cred
 
 
 
