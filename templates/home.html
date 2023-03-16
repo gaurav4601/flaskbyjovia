@@ -31,12 +31,14 @@
         <p class="lead" style="font-weight: bold; font-size: large;font-style: italic;margin: 10px auto;align-content: center;">“If you cannot do great things, do small things in a great way.”  <span style="font-family: Cambrais,Grorgia,sans-serif; margin-left: 70%;font-weight: bold;font-size: medium;">Napoleon Hill</span> </p>
     </div>
 
-    {% for jobs in data%}
+    {% for job in data%}
         <div class="hw row" style="background-color: rgb(240, 237, 233);margin: 10px 20px 20px 20px;padding:20px 20px;border-radius: 20px;">
             <div class="col-10">
-                <h3 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ jobs['role'] }}</h3>
-                <h5 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Location: {{ jobs['location'] }}</h5>
-                <h5 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Salary: {{ jobs['salary'] }} </h5>
+                <h3 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">{{ job['title'] }}</h3>
+                <h5 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Location: {{ job['location'] }}</h5>
+                <h5 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Salary: {{ job['salary'] }} <span style="font-size: small;">{{ job['currency']}}</span> </h5>
+                <h5 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Responsibility: {{ job['reponsibilities'] }} </h5>
+                <h5 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Requirements: {{ job['requirements'] }} </h5>
             </div>
             <div class="col-2 text-center" style="margin:auto;">
                 <button type="button" class="btn btn-outline-primary">Primary</button>
