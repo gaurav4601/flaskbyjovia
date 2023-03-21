@@ -22,24 +22,24 @@
 
 import os
 import mysql.connector
-from cred import cred
+# from cred import cred
 
 
 
-
-cnx = mysql.connector.connect(
-    host=cred['host'],
-    user=cred['user'],
-    password=cred['password'],
-    database=cred['database']
-)
 
 # cnx = mysql.connector.connect(
-#     host=os.environ['host'],
-#     user=os.environ['user'],
-#     password=os.environ['password'],
-#     database=os.environ['database']
+#     host=cred['host'],
+#     user=cred['user'],
+#     password=cred['password'],
+#     database=cred['database']
 # )
+
+cnx = mysql.connector.connect(
+    host=os.environ['host'],
+    user=os.environ['user'],
+    password=os.environ['password'],
+    database=os.environ['database']
+)
 
 
 
