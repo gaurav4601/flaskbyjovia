@@ -42,27 +42,27 @@
             </div>
             <div class="col-2 text-center" style="margin:auto;">
                 <button type="button" class="btn btn-outline-primary">
-                    <a href="mailto:gauravpaithane7@gmail.com" style="color: black;text-decoration: None;">Apply Now!</a>
+                    <a href="/jobs/{{ job['id'] }}" style="color: black;text-decoration: None;">Apply Now!</a>
                 </button>
             </div>  
         </div>
         
     {% endfor %}
 
+    {% if user %}
+        <h5>You have succesfully applied for Following job with details</h5>
+        {% for i in user %}
+            
+            <h6> {{ i }} </h6>
+
+        {% endfor %}
+    {% endif %}
+
     
 
 
 
-
-    <footer>
-        <div class="text-center">
-            <button class="btn btn-primary btn-lg;"> Contact Us</button>
-            <button class="btn btn-primary btn-lg;"> <a href="/api/jobs" style="color: white;text-decoration: none;"> Get Jobs API</a></button>
-            <p>Copyright 2023</p>
-            
-        </div>
-    </footer>
-
+    {% include 'footer.html' %}
 
 
 

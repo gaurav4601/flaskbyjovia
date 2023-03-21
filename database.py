@@ -22,40 +22,51 @@
 
 import os
 import mysql.connector
-#from cred import cred
+from cred import cred
 
 
 
-
-# cnx = mysql.connector.connect(
-#     host=cred['host'],
-#     user=cred['user'],
-#     password=cred['password'],
-#     database=cred['database']
-# )
 
 cnx = mysql.connector.connect(
-    host=os.environ['host'],
-    user=os.environ['user'],
-    password=os.environ['password'],
-    database=os.environ['database']
+    host=cred['host'],
+    user=cred['user'],
+    password=cred['password'],
+    database=cred['database']
 )
 
+# cnx = mysql.connector.connect(
+#     host=os.environ['host'],
+#     user=os.environ['user'],
+#     password=os.environ['password'],
+#     database=os.environ['database']
+# )
 
 
-def get_jobsdata():
-    cursor = cnx.cursor()
-    with cursor as cur:
-        print('connection successful')
-        cur.execute("SELECT * FROM jobs");
-        # get column names
-        columns = [col[0] for col in cur.description]
-        results = cursor.fetchall()
-        result_dict = []
-        for row in results:
-            result_dict.append(dict(zip(columns,row)))
-        #printing the results dict
-        return result_dict
-    
+
+def get_jobsdata(id=None):
+    if id:
+        with cnx.cursor() as cur:
+            query = "SELECT * FROM jobs WHERE id =" + str(id) + ';'
+            cur.execute(query)
+            # get column names
+            columns = [col[0] for col in cur.description]
+            results = cur.fetchall()
+            result_dict = []
+            for row in results:
+                result_dict.append(dict(zip(columns,row)))
+            #printing the results dict
+            return result_dict
+    else:
+        with cnx.cursor() as cur:
+            cur.execute("SELECT * FROM jobs;")
+            # get column names
+            columns = [col[0] for col in cur.description]
+            results = cur.fetchall()
+            result_dict = []
+            for row in results:
+                result_dict.append(dict(zip(columns,row)))
+            #printing the results dict
+            return result_dict
+        
     
     
